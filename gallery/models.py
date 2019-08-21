@@ -16,6 +16,7 @@ class Style(models.Model):
 class Painting(models.Model):
     title = models.CharField(max_length=75, unique=True)
     slug = models.SlugField(max_length=75, unique=True)
+    style = models.ForeignKey(Style, on_delete=models.CASCADE)
     available = models.BooleanField(default=True)
     quantity = models.IntegerField()
     image = models.ImageField(upload_to='Painting')
