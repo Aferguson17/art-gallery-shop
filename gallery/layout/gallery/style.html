@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+    {% if metadescription %}
+        {{ style.description|truncatewords: 75 }}
+    {% else %} 
+        Welcome! Please check out our recent painting and photography collections in the store or online!
+    {% endif %}
+{% endblock %}
+{% block title %}
+    {% if style %}
+        {{style.name }} - Ferguson Art Gallery
+    {% else %}
+        Wanna check out more? Please check us out at Ferguson Art Gallery
+    {% endif %}
+{% endblock %}
+{% block content %}
+    {% if style %}
+        <div>
+            <div>
+                <p> placeholder for text on styles</p>
+            </div>
+        </div>
+    {% endif %}
+    <div>
+    {% if style %}
+    <p>Place holder for if style is selected</p>
+    </div>
+    <div>
+        <p>Title</p>
+        <p>Item Description</p>
+    </div>
+    {% else %}
+    <p>Place holder goes here</p>
+</div>
+<div>
+    <p>Place holder1</p>
+    <p>Place holder 2</p>
+</div>
+{% endif %}
+{% endblock %}
