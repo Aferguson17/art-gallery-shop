@@ -1,41 +1,57 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block metadescription %}
-    {% if metadescription %}
-        {{ style.description|truncatewords: 75 }}
-    {% else %} 
-        Welcome! Please check out our recent painting and photography collections in the store or online!
-    {% endif %}
+   {% if style %}
+        {{ style.description|truncatewords:75 }}
+   {% else %}
+        Place Holder Title
+   {% endif %}
 {% endblock %}
 {% block title %}
-    {% if style %}
-        {{style.name }} - Ferguson Art Gallery
-    {% else %}
-        Wanna check out more? Please check us out at Ferguson Art Gallery
-    {% endif %}
+   {% if style %}
+        {{ style.name }} - Place Holder
+   {% else %}
+        Ferguson Gallery Shop
+   {% endif %}
 {% endblock %}
 {% block content %}
     {% if style %}
         <div>
-            <div>
-                <p> placeholder for text on styles</p>
-            </div>
+          <div>
+              <p>Place Holder</p>
+          </div>
         </div>
     {% endif %}
     <div>
-    {% if style %}
-    <p>Place holder for if style is selected</p>
+        {% if style %}
+            <p>Place Holder </p>
     </div>
+    <br>
     <div>
-        <p>Title</p>
-        <p>Item Description</p>
+        <h1>{{style.name}}</h1>
+        <p>{{style.description}}</p>
     </div>
     {% else %}
-    <p>Place holder goes here</p>
-</div>
-<div>
-    <p>Place holder1</p>
-    <p>Place holder 2</p>
-</div>
-{% endif %}
+        <p>Place Holder</p>
+    </div>
+    <br>
+    <div>
+        <p>Place Holder</p>
+    </div>
+    {% endif %}
+    <div>
+        <div>
+            {% for painting in paintings %}
+            <div>
+                <div>
+                    <p>Place Holder</p>
+                    <div>
+                        <h4>{{painting.name}}</h4>
+                        <p>${{painting.price}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

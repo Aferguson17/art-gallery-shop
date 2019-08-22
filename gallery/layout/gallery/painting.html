@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+	{{ painting.description|truncatewords:75 }}
+{% endblock %}
+{% block title %}
+    {{ painting.title }} 
+{% endblock %}
+{% block content %}
+
+	<div>
+		<div>
+            <p>Place Holder Painting Stuff</p>
+        </div>
+
+		<div>
+			<div>
+				<div>
+					<div>
+						<img src="{{painting.image.url}}">
+					</div>
+				</div>
+				<div>
+					<div>
+						<h1>{{painting.title}}</h1>
+						<p>${{painting.price}}</p>
+						<p>Place Holder for Something</p>
+						<p>Place Holder for Something</p>
+							<a class= "btn btn-secondary" href="{% url 'cart:add_cart' painting.id %}">Add to Cart</a>
+						{% endif %}
+					<div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
