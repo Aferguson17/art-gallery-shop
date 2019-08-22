@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 class Style(models.Model):
     name = models.CharField(max_length=75, unique=True)
@@ -6,7 +7,7 @@ class Style(models.Model):
     description = models.TextField(blank=True)
 
     class Meta:
-        ordering = ( 'name', )
+        ordering = ('name',)
         verbose_name = 'style'
         verbose_name_plural = 'styles'
 
@@ -29,6 +30,9 @@ class Painting(models.Model):
         ordering = ('title',)
         verbose_name = 'painting'
         verbose_name_plural = 'paintings'
+    
+    def get_url(self):
+        return reverse('gallery:paintings', args=[self.slug])
 
     def __str__(self):
         return '{}'.format(self.title)
