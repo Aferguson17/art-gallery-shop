@@ -44,9 +44,9 @@
             {% for painting in paintings %}
             <div>
                 <div>
-                    <p>Place Holder</p>
-                    <div>
-                        <h4>{{painting.name}}</h4>
+                    <div class="gallery-images" style="min-width: 24rem;">
+                        <a href="{{painting.image.url}}"><img src="{{painting.image.url}}"></img></a>
+                        <h4>{{painting.title}}</h4>
                         <p>${{painting.price}}</p>
                     </div>
                 </div>
