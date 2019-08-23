@@ -8,25 +8,27 @@
 {% endblock %}
 {% block content %}
 
-	<div>
-		<div>
+	<div class="row painting_row_class">
+		<div class="mx-auto">
             <p>Place Holder Painting Stuff</p>
         </div>
-
-		<div>
-			<div>
-				<div>
-					<div>
+		<div class="painting_container">
+			<div class="row">
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+					<div style="min-width: 24rem">
 						<img src="{{painting.image.url}}" alt="{{painting.title}}">
 					</div>
 				</div>
-				<div>
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6">
 					<div>
-						<h1>{{painting.title}}</h1>
+						<h1 class="painting_title">{{painting.title}}</h1>
 						<p>${{painting.price}}</p>
-						<p>Place Holder for Something</p>
-						<p>Place Holder for Something</p>
-							<a class= "btn btn-secondary" href="{% url 'cart:add_cart' painting.id %}">Add to Cart</a>
+						<p>Product Description</p>
+						<p>{{painting.description}}</p>
+						{% if painting.quantity <= 0 %}
+							<p class="text-justify painting_description_txt"><b>Out of Stock</b></p>
+						{% else %}
+							<a class="btn btn-secondary" href="">Add to Cart</a>
 						{% endif %}
 					<div>
 				</div>

@@ -14,7 +14,7 @@
                             
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{% url 'gallery:allPaintSty' %}">Check All</a>
-                          {% for style in links%}
+                          {% for style in links %}
                           <a class="dropdown-item" href="{{style.get_url}}">{{style.name}}</a>
                           {% endfor %}
                           <li>Cart</li>

@@ -20,3 +20,52 @@
     font-size: 14px;
     padding-top: 25px;
 }
+
+.style_rows {
+    padding-top: 15px;
+}
+.style_rows .mx-auto p {
+    color: black;
+    font-size: 12px;
+}
+.style_rows .mx-auto p a {
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+}
+.paintings_pics {
+    width: 100%;
+    height: auto;
+}
+.style_name {
+    font-size: 16px;
+    letter-spacing: 1.5em;
+}
+.gallery_column_margins {
+    margin-bottom: 10px;
+}
+.card-body h4 {
+    font-size: 14px;
+    letter-spacing: 1.5em;
+}
+/** Paintings **/
+.painting_row_class {
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+.painting_row_class .mx-auto {
+    color: black;
+    font-size: 12px;
+}
+.painting_row_class .mx-auto a {
+    text-decoration: none;
+}
+.painting_title {
+    font-size: 16px;
+    letter-spacing: 1.5em;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.painting_description_txt {
+    padding-right: 20px;
+}

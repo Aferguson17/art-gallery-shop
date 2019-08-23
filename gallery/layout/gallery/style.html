@@ -9,45 +9,51 @@
 {% endblock %}
 {% block title %}
    {% if style %}
-        {{ style.name }} - Place Holder
+        {{ style.name }}
    {% else %}
         Ferguson Gallery Shop
    {% endif %}
 {% endblock %}
 {% block content %}
     {% if style %}
-        <div>
-          <div>
-              <p>[[Place Holder]]</p>
-          </div>
+        <div class ="row style_rows">
+            <div class ="mx-auto">
+                <br>
+                <br>
+                <p>Each piece seen on this site is made by Ashley Ferguson</p>
+            </div>
         </div>
     {% endif %}
-    <div>
+
+    <div class="mx-auto">
         {% if style %}
             <p>Place Holder </p>
+            <img class="paintings_pics" src="{{ style.image.url }}">
     </div>
     <br>
     <div>
-        <h1>{{style.name}}</h1>
-        <p>{{style.description}}</p>
+        <h1 class="style-name">{{style.name}}</h1>
+        <p class="style-description">{{style.description}}</p>
     </div>
     {% else %}
         <p>Place Holder</p>
     </div>
     <br>
     <div>
-        <p>Place Holder</p>
+        <p>Place Holder 1</p>
     </div>
     {% endif %}
-    <div>
-        <div>
+
+    <div class="style_container">
+        <div class="row mx-auto">
             {% for painting in paintings %}
-            <div>
-                <div>
-                    <div class="gallery-images" style="min-width: 24rem;">
-                        <a href="{{painting.image.url}}"><img src="{{painting.image.url}}"></img></a>
+            <div class="gallery_column_margins col-9 col-sm-12 col-md-4 col-md-12 col-lg-4">
+                <div class="card text-center" style="min-width: 24rem;">
+                    <a href="{{painting.image.url}}"><img class="card-img-top my_img" src="{{painting.image.url}}"></img></a>
+                        <div class="paint-card-data">
                         <h4>{{painting.title}}</h4>
                         <p>${{painting.price}}</p>
+                        <p>{{painting.description}}</p>
                     </div>
                 </div>
             </div>

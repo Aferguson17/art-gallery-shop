@@ -5,5 +5,6 @@ lib/
 local_settings.py
 staticfiles/admin
 staticfiles/media
+static/media
 env
 
