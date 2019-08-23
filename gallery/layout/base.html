@@ -10,9 +10,10 @@
         <title>{% block title %}{% endblock %}</title>
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div>
+        <div class="container">
             {% include 'header.html' %}
             {% include 'navbar.html' %}
             {% block content %}

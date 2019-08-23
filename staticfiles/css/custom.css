@@ -1,0 +1,22 @@
+.body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-item {
+    letter-spacing: 1.5em;
+    font-size: 14px
+}
+.dropdown-item {
+    letter-spacing: 1.5em;
+    font-size: 14px;
+}
+
+.my_footer {
+    height: 40px;
+    background-color: #24ab9e;
+}
+
+.my_footer p {
+    font-size: 14px;
+    padding-top: 25px;
+}
