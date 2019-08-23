@@ -17,13 +17,14 @@
                           {% for style in links %}
                           <a class="dropdown-item" href="{{style.get_url}}">{{style.name}}</a>
                           {% endfor %}
-                          <li>Cart</li>
+                          <li>Cart()</li>
                         </div>
                       </li>
 
         
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <form class="form-inline my-2 my-lg-0" action="{% url 'search_application:searchResults' %}" method="get">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>

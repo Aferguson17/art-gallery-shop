@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('gallery/', include('gallery.urls')),
+    path('search/', include('search_application.urls')),
 ]
 
 if settings.DEBUG:

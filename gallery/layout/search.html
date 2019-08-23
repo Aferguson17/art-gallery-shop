@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+{% endblock %}
+{% block title %}
+Search
+{% endblock %}
+{% block content %}
+    <div>
+        <br>
+        <a class="text-center search_results_text">You are searching for <b>"{{ query }}"</b></a>
+    </div>
+    <div class="style_container">
+            <div class="row mx-auto">
+                {% for painting in paintings %}
+                <div class="gallery_column_margins col-9 col-sm-12 col-md-4 col-md-12 col-lg-4">
+                    <div class="card text-center" style="min-width: 24rem;">
+
+                        <a href="{{painting.get_url}}"><img class="card-img-top my_img" src="{{painting.image.url}}"></img></a>
+                            <div class="paint-card-data">
+                            <h4>{{painting.title}}</h4>
+                            <p>${{painting.price}}</p>
+                            <p>{{painting.description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="row mx-auto">
+                    <br>
+                    <br>
+                    <p class="text-center search_restults_text">Sorry, there were no results found!</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}

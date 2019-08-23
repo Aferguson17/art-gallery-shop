@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gallery',
+    'search_application',
 ]
 
 MIDDLEWARE = [
@@ -34,7 +35,7 @@ ROOT_URLCONF = 'fergusonart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'gallery', 'layout/')],
+        'DIRS': [os.path.join(BASE_DIR, 'gallery', 'layout/'), os.path.join(BASE_DIR,'search_application','templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

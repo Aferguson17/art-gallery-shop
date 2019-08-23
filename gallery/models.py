@@ -35,7 +35,7 @@ class Painting(models.Model):
         verbose_name_plural = 'paintings'
     
     def get_url(self):
-        return reverse('gallery:paintings', args=[self.style.slug, self.slug])
+        return reverse('gallery:paintStyDetail', args=[self.style.slug, self.slug])
 
     def __str__(self):
         return '{}'.format(self.title)

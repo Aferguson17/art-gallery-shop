@@ -9,9 +9,7 @@
 {% block content %}
 
 	<div class="row painting_row_class">
-		<div class="mx-auto">
-            <p>Place Holder Painting Stuff</p>
-        </div>
+		<div class="mx-auto">   
 		<div class="painting_container">
 			<div class="row">
 				<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
@@ -25,11 +23,8 @@
 						<p>${{painting.price}}</p>
 						<p>Product Description</p>
 						<p>{{painting.description}}</p>
-						{% if painting.quantity <= 0 %}
-							<p class="text-justify painting_description_txt"><b>Out of Stock</b></p>
-						{% else %}
 							<a class="btn btn-secondary" href="">Add to Cart</a>
-						{% endif %}
+						</div>
 					<div>
 				</div>
 			</div>
