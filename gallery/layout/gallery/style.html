@@ -19,7 +19,6 @@
         <div class ="row style_rows">
             <div class ="mx-auto">
                 <br>
-                <br>
                 <p>Each art piece seen on this site is made by Ashley Ferguson</p>
             </div>
         </div>
@@ -27,7 +26,6 @@
 
     <div class="mx-auto">
         {% if style %}
-            <p>Place Holder </p>
             <img class="paintings_pics" src="{{ style.image.url }}">
     </div>
     <br>
@@ -36,7 +34,20 @@
         <p class="style-description">{{style.description}}</p>
     </div>
     {% else %}
-        <p>Place Holder</p>
+
+    <div>
+        <h1 class="text-center">
+            <br>
+            Welcome to my vitual gallery!
+        </h1>
+        <p>Lorepm ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis orci sed pellentesque convallis. Ut viverra odio sit amet orci volutpat, mollis sodales augue ultrices. 
+            Nulla sed ipsum nunc. Nulla sed tortor dui. Vivamus aliquet lorem in enim tincidunt, sit amet volutpat leo dapibus. Nullam dictum dignissim metus vel tristique. Fusce cursus ipsum non convallis lobortis. 
+            Proin ullamcorper accumsan velit, vel ornare massa commodo quis. </p>
+                    
+        <p>Donec non porttitor tellus. Nam sodales maximus eros, a sodales nulla placerat sed. Nunc pellentesque sem ac nisl maximus placerat. 
+            In hac habitasse platea dictumst. In egestas faucibus ultrices. Nulla porttitor quis turpis vestibulum tempor. Aenean porta nibh lorem.</p>
+    </div>
+
     </div>
     <br>
     {% endif %}
@@ -45,7 +56,7 @@
         <div class="row mx-auto">
             {% for painting in paintings %}
             <div class="gallery_column_margins col-9 col-sm-12 col-md-4 col-md-12 col-lg-4">
-                <div class="card text-center" style="min-width: 24rem;">
+                <div class="card text-center" style="min-width: 15rem;">
                     <a href="{{painting.image.url}}"><img class="card-img-top my_img" src="{{painting.image.url}}"></img></a>
                         <div class="paint-card-data">
                         <h4>{{painting.title}}</h4>

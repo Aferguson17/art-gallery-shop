@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gallery',
     'search_application',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -35,7 +36,9 @@ ROOT_URLCONF = 'fergusonart.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'gallery', 'layout/'), os.path.join(BASE_DIR,'search_application','templates/')],
+        'DIRS': [os.path.join(BASE_DIR, 'gallery', 'layout/'), 
+            os.path.join(BASE_DIR,'search_application','templates/'), 
+            os.path.join(BASE_DIR, 'cart', 'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -44,6 +47,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'gallery.context_processors.menu_links',
+                'cart.context_processors.counter',
             ],
         },
     },

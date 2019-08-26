@@ -6,7 +6,7 @@ def index(request):
     text_var = 'Ferguson Art Gallery Shop'
     return HttpResponse(text_var)    
 
-def allPaintSty(request, s_slug=None):
+def shopByStyle(request, s_slug=None):
     s_page = None
     paintings = None
     if s_slug != None:

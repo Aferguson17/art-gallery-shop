@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block metadescription %}
-	{{ painting.description|truncatewords:75 }}
+{{ painting.description|truncatewords:75 }}
 {% endblock %}
 {% block title %}
-    {{ painting.title }} 
+{{ painting.title }} 
 {% endblock %}
 {% block content %}
 
@@ -14,16 +14,22 @@
 			<div class="row">
 				<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
 					<div style="min-width: 24rem">
+						<br>
+						<br>
 						<img src="{{painting.image.url}}" alt="{{painting.title}}">
 					</div>
 				</div>
+
 				<div class="col-12 col-sm-12 col-md-12 col-lg-6">
+					<br>
+					<br>
 					<div>
 						<h1 class="painting_title">{{painting.title}}</h1>
 						<p>${{painting.price}}</p>
-						<p>Product Description</p>
+						<p>Description:</p>
 						<p>{{painting.description}}</p>
-							<a class="btn btn-secondary" href="">Add to Cart</a>
+						<br>
+							<a class="btn btn-info" href="{% url 'cart:cart_add' painting.id %}">Add to Cart</a>
 						</div>
 					<div>
 				</div>

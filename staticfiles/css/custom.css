@@ -11,18 +11,8 @@
     font-size: 14px;
 }
 
-.my_footer {
-    height: 40px;
-    background-color: #24ab9e;
-}
-
-.my_footer p {
-    font-size: 14px;
-    padding-top: 25px;
-}
-
 .style_rows {
-    padding-top: 15px;
+    padding-top: 30px;
 }
 .style_rows .mx-auto p {
     color: black;
@@ -71,4 +61,28 @@
 }
 .search-text {
     padding-top: 20px; 
+}
+/* Cart */
+.checkout-table{
+    font-size: 14px; 
+    min-width: 400px;
+}
+.checkout-table-head {
+    font-weight: normal;
+    letter-spacing: 1.5em;
+    background-color: lightslategray;
+}
+.cart-images {
+    width: 100px;
+    height: 100px;
+}
+.cart_a {
+    text-decoration: none;
+}
+.cust-icon {
+    text-decoration: none;
+    color: lightslategrey; 
+}
+.my_custom_button {
+    margin-top: 5px;
 }

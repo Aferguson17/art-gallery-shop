@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+{% endblock %}
+{% block title %}{% endblock %}
+{% block content %}
+    {% if not add_cart_items %}
+        <div>
+            <div class="text-center">
+                <p class="text-center page_title">
+                    Your cart is empty. Click <a href="{% url 'gallery:shopByStyle' %}">here</a> to return to the gallery.
+                </p>
+            </div>
+        </div>
+    {% else %}    
+        <div>
+            <div class="text-center">
+                <h1 class="text-center page_title">
+                    <br>
+                    Your Shopping Cart
+                </h1>
+            </div>
+        </div>
+    <div class="row mx-auto">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table checkout-table">
+                <thead class="checkout-table-head">
+                    <tr>
+                        <th>
+                            Your Order: Your total is ${{ total }}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for add_cart_item in add_cart_items %}
+                        <tr>
+                        <td>
+                                <strong>Title: {{add_cart_item.painting.title}}</strong>
+                                <br>
+                                Id: {{add_cart_item.painting.id}}
+                                <br>
+                                Qty: {{add_cart_item.quantity}} | Price: ${{add_cart_item.painting.price}}
+                                <br>
+                                Sub Total: ${{add_cart_item.sub_total}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table checkout-table">
+                    <thead class="checkout-table-head">
+                    <tr>
+                        <th>
+                            Checkout
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Review your order and proceed to checkout. 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="mx-auto">
+                <a href="{% url 'gallery:shopByStyle' %}" class="btn btn-info btn-block my_custom_button">Continue Shopping</a>
+            </div>
+
+        </div>
+    </div>
+    <br>
+{% endif %}
+{% endblock %}
+
+
+
+
