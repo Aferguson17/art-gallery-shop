@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block metadescription %}
-{% endblock %}
-{% block title %}{% endblock %}
+{% load static %}
 {% block content %}
     {% if not add_cart_items %}
         <div>
@@ -68,7 +66,22 @@
             </table>
             
             <div class="mx-auto">
-                <a href="{% url 'gallery:shopByStyle' %}" class="btn btn-info btn-block my_custom_button">Continue Shopping</a>
+                <form action="" method="POST"> 
+                        {% csrf_token %}
+                        <script src="https://checkout.stripe.com/checkout.js"
+                        class="stripe-button border-box"
+                        data-name="Ferguson Gallery"
+                        data-key="{{ data_key }}"
+                        data-amount="{{ stripe_cc_total }}"
+                        data-description="{{ description }}"
+                        data-currency="usd"
+                        data-billing-address="true"
+                        data-zip-code="true"
+                        ></script>
+                    </script>
+                </form>
+                <br>
+                <a href="{% url 'gallery:shopByStyle' %}" class="btn btn-info my-2 my-sm-0">Continue Shopping</a>
             </div>
 
         </div>
@@ -76,7 +89,3 @@
     <br>
 {% endif %}
 {% endblock %}
-
-
-
-

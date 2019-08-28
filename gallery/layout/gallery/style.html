@@ -1,12 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block metadescription %}
-   {% if style %}
-        {{ style.description|truncatewords:75 }}
-   {% else %}
-        Place Holder Title
-   {% endif %}
-{% endblock %}
+
 {% block title %}
    {% if style %}
         {{ style.name }}
@@ -18,8 +12,7 @@
     {% if style %}
         <div class ="row style_rows">
             <div class ="mx-auto">
-                <br>
-                <p>Each art piece seen on this site is made by Ashley Ferguson</p>
+                <h4>Each art piece seen on this site is made by Ashley Ferguson</h4>
             </div>
         </div>
     {% endif %}
@@ -36,18 +29,18 @@
     {% else %}
 
     <div>
-        <h1 class="text-center">
-            <br>
-            Welcome to my vitual gallery!
-        </h1>
-        <p>Lorepm ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis orci sed pellentesque convallis. Ut viverra odio sit amet orci volutpat, mollis sodales augue ultrices. 
+        <div class="style_container">
+            <h1 class="text-center">
+                <br>
+                Welcome to my vitual gallery!
+            </h1>
+            <p>Lorepm ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis orci sed pellentesque convallis. Ut viverra odio sit amet orci volutpat, mollis sodales augue ultrices. 
             Nulla sed ipsum nunc. Nulla sed tortor dui. Vivamus aliquet lorem in enim tincidunt, sit amet volutpat leo dapibus. Nullam dictum dignissim metus vel tristique. Fusce cursus ipsum non convallis lobortis. 
             Proin ullamcorper accumsan velit, vel ornare massa commodo quis. </p>
                     
-        <p>Donec non porttitor tellus. Nam sodales maximus eros, a sodales nulla placerat sed. Nunc pellentesque sem ac nisl maximus placerat. 
+            <p>Donec non porttitor tellus. Nam sodales maximus eros, a sodales nulla placerat sed. Nunc pellentesque sem ac nisl maximus placerat. 
             In hac habitasse platea dictumst. In egestas faucibus ultrices. Nulla porttitor quis turpis vestibulum tempor. Aenean porta nibh lorem.</p>
-    </div>
-
+        </div>
     </div>
     <br>
     {% endif %}
@@ -62,10 +55,10 @@
                         <h4>{{painting.title}}</h4>
                         <p>${{painting.price}}</p>
                         <p>{{painting.description}}</p>
+                        <a class="btn btn-info" href="{% url 'cart:cart_add' painting.id %}">Add to Cart</a>
+                        <br>        
                     </div>
                 </div>
             </div>
-            {% endfor %}
-        </div>
-    </div>
+            {% endfor %}    
 {% endblock %}
