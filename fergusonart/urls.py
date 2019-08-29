@@ -25,6 +25,7 @@ urlpatterns = [
     path('gallery/', include('gallery.urls')),
     path('search/', include('search_application.urls')),
     path('cart/', include('cart.urls')),
+    path('place_order/s', include('place_orders.urls')),
 ]
 
 if settings.DEBUG:

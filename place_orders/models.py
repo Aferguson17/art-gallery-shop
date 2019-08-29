@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class placeOrder(models.Model):
     token = models.CharField(max_length=75, blank=True)
     dateCreated = models.DateField(auto_now=True)
@@ -22,7 +21,7 @@ class yourItem(models.Model):
     painting = models.CharField(max_length=75)
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Price")
     quantity = models.IntegerField()
-    order = models.ForeignKey(placeOrder, on_delete=models.CASCADE)
+    place_order = models.ForeignKey(placeOrder, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'yourItem'

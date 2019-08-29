@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}
+    Confirmation
+{% endblock %}
+{% block content %}
+    <div>
+        <div class="text-center">
+            <br>
+            <br>
+            <h1>Order Confirmation</h1>
+            <br>
+            <br>
+            <p>Your order number is:<b> {{ customer_order.id }}</b></p>
+            <br>
+            <p>
+                Your order has been placed. You will be notified once your item is ready fro pick-up, 
+            </p>
+        </div>
+    </div>
+{% endblock %}
