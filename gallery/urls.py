@@ -6,5 +6,5 @@ app_name='gallery'
 urlpatterns = [
     path('', views.shopByStyle, name='shopByStyle'),
     path('<slug:s_slug>/', views.shopByStyle, name='paintings_by_style'),
-    path('<slug:s_slug>/<slug:painting_slug>/', views.paintStyDetail, name='paintStyDetail'),
+    path('<slug:s_slug>/<slug:painting_slug>/', views.paintStyleDetail, name='paintStyleDetail'),
 ]

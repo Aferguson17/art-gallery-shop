@@ -6,10 +6,18 @@ Sign Up
 {% block content %}
     <div>
         {% if not form.is_valid%}
-
+        <h1>Sign Up</h1>
+        <p>Please fill out the information in the form below:</p>
+        <form method="post">
+            {% csrf_token %}
+            <p>{{ form }}</p>
+            <button type="submit" class="btn-info">Click to Register!</button>
+        </form>
         {% else %}
-
+        <div>
+            <h1>Your account has been created.</h1>
+            <p>You may continue shopping by returning <a href="{% url 'gallery:shopByStyle' %}">here.</a></p>
+        </div>
         {% endif %}
     </div>
-
 {% endblock %}
