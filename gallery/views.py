@@ -34,7 +34,7 @@ def signupTemp(request):
       form.save()
       username = form.cleaned_data.get('username')
       user_signup = User.objects.get(username=username)
-      customer_group_assign =  Group.objects.get(name='Customer')
+      customer_group =  Group.objects.get(name='Customer')
       customer_group.user_set.add(user_signup)
   else:
     form = SignUpForm()
