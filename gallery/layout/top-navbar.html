@@ -1,0 +1,34 @@
+<style>
+.top-menu ul li {
+	list-style: none;
+	color: #000;
+	padding-right: 850px;
+	display: inline;
+}
+.top-menu ul li a {
+	text-decoration: none;
+	color: #000;
+	list-style: none;
+}
+</style>
+
+
+<div class="navbar-fixed-top">
+    <div class="top-menu">
+        <ul>
+            <br>
+            {% if request.user.is_authenticated and request.user.first_name %}
+            <li>
+                Hello {{ request.user.first_name }} <i class="fas fa-user-circle"></i>
+            </li>
+            <li>
+                <a href="{% url 'logout' %}">Sign Out</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'login' %}">Sign In</a> | <a href="{% url 'signup' %}">Sign Up</a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>

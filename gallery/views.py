@@ -1,3 +1,5 @@
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Style, Painting
@@ -5,27 +7,27 @@ from .forms import SignUpForm
 from django.contrib.auth.models import User, Group
 
 def index(request):
-    text_var = 'Ferguson Art Gallery Shop'
-    return HttpResponse(text_var)    
+  text_var = 'Ferguson Art Gallery Shop'
+  return HttpResponse(text_var)    
 
 def shopByStyle(request, s_slug=None):
-    s_page = None
-    paintings = None
-    if s_slug!= None:
-        s_page = get_object_or_404(Style,slug=s_slug)
-        paintings = Painting.objects.filter(style=s_page,available=True)
-    else: 
-      paintings = Painting.objects.all().filter(available=True) 
+  s_page = None
+  paintings = None
+  if s_slug!= None:
+      s_page = get_object_or_404(Style,slug=s_slug)
+      paintings = Painting.objects.filter(style=s_page,available=True)
+  else: 
+    paintings = Painting.objects.all().filter(available=True) 
 
-    return render(request, 'gallery/style.html', {'style':s_page,'paintings':paintings})
+  return render(request, 'gallery/style.html', {'style':s_page,'paintings':paintings})
 
 def paintStyleDetail(request,s_slug,painting_slug):
-    try:
-        painting = Painting.objects.get(style__slug=s_slug,slug=painting_slug)
+  try:
+      painting = Painting.objects.get(style__slug=s_slug,slug=painting_slug)
     
-    except Exception as e:
-      raise e
-    return render(request, 'gallery/painting.html', {'painting':painting})
+  except Exception as e:
+    raise e
+  return render(request, 'gallery/painting.html', {'painting':painting})
 
 def signupTemp(request):
   if request.method == 'POST':
@@ -34,8 +36,28 @@ def signupTemp(request):
       form.save()
       username = form.cleaned_data.get('username')
       user_signup = User.objects.get(username=username)
-      customer_group =  Group.objects.get(name='Customer')
+      customer_group = Group.objects.get(name='Customer')
       customer_group.user_set.add(user_signup)
   else:
     form = SignUpForm()
   return render(request, 'user_accounts/user_signup.html', {'form':form})
+
+def signinTemp(request):
+  if request.method == 'POST':
+    form = AuthenticationForm(data=request.POST)
+    if form.is_valid():
+      username = request.POST['username']
+      password = request.POST['password']
+      user = authenticate(username=username, password=password)
+      if user is not None:
+        login(request, user)
+        return redirect('gallery:shopByStyle')
+      else:
+        return redirect('user_signup')
+  else:
+    form = AuthenticationForm()
+  return render(request,'user_accounts/user_signin.html', {'form':form})
+
+def signoutTemp(request):
+    logout(request)
+    return redirect('login')

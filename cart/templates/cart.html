@@ -32,7 +32,7 @@
                 <tbody>
                     {% for add_cart_item in add_cart_items %}
                         <tr>
-                        <td>
+                            <td>
                                 <strong>Title: {{add_cart_item.painting.title}}</strong>
                                 <br>
                                 Id: {{add_cart_item.painting.id}}
@@ -40,12 +40,12 @@
                                 Qty: {{add_cart_item.quantity}} | Price: ${{add_cart_item.painting.price}}
                                 <br>
                                 Sub Total: ${{add_cart_item.sub_total}}
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
     <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
             <table class="table checkout-table">
@@ -68,7 +68,7 @@
             <div class="mx-auto">
                 <form action="" method="POST"> 
                         {% csrf_token %}
-                        <script src="https://checkout.stripe.com/checkout.js"
+                    <script src="https://checkout.stripe.com/checkout.js"
                         class="stripe-button border-box"
                         data-name="Ferguson Gallery"
                         data-key="{{ data_key }}"
@@ -77,12 +77,11 @@
                         data-currency="usd"
                         data-billing-address="true"
                         data-zip-code="true">
-                        </script>
+                    </script>
                 </form>
                 <br>
                 <a href="{% url 'gallery:shopByStyle' %}" class="btn btn-info my-2 my-sm-0">Continue Shopping</a>
             </div>
-
         </div>
     </div>
     <br>

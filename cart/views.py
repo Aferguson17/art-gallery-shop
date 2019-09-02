@@ -45,9 +45,9 @@ def items_in_cart(request, total=0, counter=0, add_cart_items = None):
 
 #stripe data
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    data_key = settings.STRIPE_PUBLISHABLE_KEY
-    description = 'Ferguson Virtual Gallery'
     stripe_cc_total = int(total * 100)
+    description = 'Ferguson Virtual Gallery'
+    data_key = settings.STRIPE_PUBLISHABLE_KEY
     if request.method == 'POST':
         try:
             token = request.POST['stripeToken']
@@ -55,7 +55,8 @@ def items_in_cart(request, total=0, counter=0, add_cart_items = None):
             billingName = request.POST['stripeBillingName']
             customer = stripe.Customer.create(
                 email=email,
-            )
+                token = token
+            ),
             charge = stripe.Charge.create(
                 customer=customer.id,
                 amount=stripe_cc_total,

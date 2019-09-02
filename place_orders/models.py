@@ -3,8 +3,8 @@ from django.db import models
 class placeOrder(models.Model):
     token = models.CharField(max_length=75, blank=True)
     dateCreated = models.DateField(auto_now=True)
-    total = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Total")
-    emailAddress = models.EmailField(max_length=75, blank=True, verbose_name="Email Address")
+    total = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Total')
+    emailAddress = models.EmailField(max_length=75, blank=True, verbose_name='Email Address')
     billingName = models.CharField(max_length=75, blank=True)
     billingAddress = models.CharField(max_length=75, blank=True)
     billingCity = models.CharField(max_length=75, blank=True)

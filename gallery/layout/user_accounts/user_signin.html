@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}
+Sign In
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center" style="background-color:#909090">
+                    <br>
+                    <br>
+                    <h1>New Users</h1>
+                    <p>Create a new profile by clicking the button below!</p>
+                        <a href="{% url 'signup' %}" class="btn btn-info">Create Profile</a>
+            </div>     
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+                <div>
+                    <br>
+                    <br>
+                    <h1>Returning Users</h1>
+                    <p>Welcome back, click on the button below to login!</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>{{ form | crispy }}</p>
+                        <button type="submit" class="btn btn-info" style="background-color: #909090">Sign In</button>
+                    </form>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>       
+        </div>
+    </div>
+{% endblock%}

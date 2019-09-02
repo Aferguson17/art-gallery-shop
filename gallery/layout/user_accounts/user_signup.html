@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 {% block title %}
 Sign Up
 {% endblock %}
 {% block content %}
     <div class="container">
         {% if not form.is_valid%}
+        <br>
         <h1>Sign Up</h1>
         <p>Please fill out the information in the form below:</p>
         <form method="post">
             {% csrf_token %}
-            <p>{{ form }}</p>
+            <p>{{ form | crispy }}</p>
             <button type="submit" class="btn-info">Click to Register!</button>
         </form>
         {% else %}

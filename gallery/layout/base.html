@@ -9,20 +9,18 @@
         <meta name="description" content="{% block metadescription %}{% endblock %}">
         <title>{% block title %}{% endblock %}Ferguson Vitrual Gallery</title>
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
     </head>
     <body>
         <div class="container">
+            {% include 'top-navbar.html' %}
             {% include 'header.html' %}
             {% include 'navbar.html' %}
             {% block content %}
             {% endblock %}
         </div>
             {% include 'scripts.html'%}
-        <div>
-                <footer class="page-footer page-custom font-small fixed">
-                        <br>
-                        <div class="footer-copyright text-center py-3">© 2019 Ashley Ferguson Copyright</div>
-                 </footer>
-        </div>
+            {% include 'footer.html' %}
     </body>
 </html>
