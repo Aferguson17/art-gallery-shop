@@ -20,7 +20,8 @@ def cart_add(request, painting_id):
     try:
         cart = Cart.objects.get(new_cart_id=new_cart_id(request))
     except Cart.DoesNotExist:
-        cart = Cart.objects.create(new_cart_id =new_cart_id(request))
+        cart = Cart.objects.create(
+            new_cart_id =new_cart_id(request))
         cart.save()
     try:
         add_cart_item = CartAddItem.objects.get(painting=painting, cart=cart)
@@ -55,19 +56,19 @@ def items_in_cart(request, total=0, counter=0, add_cart_items = None):
             billingName = request.POST['stripeBillingName']
             customer = stripe.Customer.create(
                 email=email,
-                token = token
-            ),
+            )
             charge = stripe.Charge.create(
                 customer=customer.id,
                 amount=stripe_cc_total,
                 currency="usd",
-                description=description
+                description=description,
             )
             try:
-                items_in_cart = placeOrder.objects.create(
+                items_in_order = placeOrder.objects.create(
+                    token = token,
+                    billingName = billingName, 
                     emailAddress = email, 
-                    total= total,
-                    billingName = billingName 
+                    total= total
                     )
                 items_in_order.save()
                 for order_item_added in add_cart_items:
@@ -75,7 +76,7 @@ def items_in_cart(request, total=0, counter=0, add_cart_items = None):
                         painting = order_item_added.painting.title,
                         price = order_item_added.painting.price,
                         quantity = order_item_added.quantity,
-                        order = items_in_cart
+                        order = items_in_order
                     )
                     yi.save()
 
@@ -84,7 +85,7 @@ def items_in_cart(request, total=0, counter=0, add_cart_items = None):
                     paintings.save()
                     order_item_added.delete()
 
-                return redirect('place_order:confirmation', order_item_added.id)
+                return redirect('gallery:shopByProduct', order_item_added.id)
             except ObjectDoesNotExist: 
                 pass
         except stripe.error.CardError as e: 

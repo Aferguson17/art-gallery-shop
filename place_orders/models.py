@@ -21,7 +21,7 @@ class yourItem(models.Model):
     painting = models.CharField(max_length=75)
     price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Price")
     quantity = models.IntegerField()
-    place_order = models.ForeignKey(placeOrder, on_delete=models.CASCADE)
+    place_orders = models.ForeignKey(placeOrder, on_delete=models.CASCADE)
 
     class Meta:
         db_table = 'yourItem'
