@@ -40,7 +40,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'gallery', 'layout/'), 
-            os.path.join(BASE_DIR,'search_application','templates/'), 
+            os.path.join(BASE_DIR,'search_application', 'layout/'), 
             os.path.join(BASE_DIR, 'cart', 'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {

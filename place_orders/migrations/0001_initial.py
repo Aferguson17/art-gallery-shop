@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
                 ('painting', models.CharField(max_length=75)),
                 ('price', models.DecimalField(decimal_places=2, max_digits=8, verbose_name='Price')),
                 ('quantity', models.IntegerField()),
-                ('place_orders', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='place_orders.placeOrder')),
+                ('place_orders_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='place_orders_id.placeOrder')),
             ],
             options={
                 'db_table': 'yourItem',

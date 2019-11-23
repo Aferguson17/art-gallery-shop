@@ -12,7 +12,8 @@
     {% if style %}
         <div class ="row style_rows">
             <div class ="mx-auto">
-                <h4>Each art piece seen on this site is made by Ashley Ferguson</h4>
+                <br>
+                <h4><i>Each art piece seen on this site is made by Ashley Ferguson</i></h4>
             </div>
         </div>
     {% endif %}
@@ -21,7 +22,6 @@
         {% if style %}
             <img class="paintings_pics" src="{{ style.image.url }}">
     </div>
-    <br>
     <div>
         <h1 class="style-name">{{style.name}}</h1>
         <p class="style-description">{{style.description}}</p>
@@ -34,12 +34,10 @@
                 <br>
                 Welcome to my vitual gallery!
             </h1>
-            <p>Lorepm ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sagittis orci sed pellentesque convallis. Ut viverra odio sit amet orci volutpat, mollis sodales augue ultrices. 
-            Nulla sed ipsum nunc. Nulla sed tortor dui. Vivamus aliquet lorem in enim tincidunt, sit amet volutpat leo dapibus. Nullam dictum dignissim metus vel tristique. Fusce cursus ipsum non convallis lobortis. 
-            Proin ullamcorper accumsan velit, vel ornare massa commodo quis. </p>
+            <p>I learned how to pain at a very young age. My father was an artist and sat me down in front of a cavnas as soon as I was old enough to hold a brush. 
+                I am not a professional but I greatly enjoy creating art. I have painted all of my work either by oil or acryllic paints using a varitiy of instruments as paint brushes.  </p>
                     
-            <p>Donec non porttitor tellus. Nam sodales maximus eros, a sodales nulla placerat sed. Nunc pellentesque sem ac nisl maximus placerat. 
-            In hac habitasse platea dictumst. In egestas faucibus ultrices. Nulla porttitor quis turpis vestibulum tempor. Aenean porta nibh lorem.</p>
+            <p>Take a look at my collection, and give my artwork a new home! I hope you enjoy my work as much as I enjoyed creating it. </p>
         </div>
     </div>
     <br>
@@ -48,17 +46,24 @@
     <div class="style_container">
         <div class="row mx-auto">
             {% for painting in paintings %}
-            <div class="gallery_column_margins col-9 col-sm-12 col-md-4 col-md-12 col-lg-4">
-                <div class="card text-center" style="min-width: 15rem;">
-                    <a href="{{painting.image.url}}"><img class="card-img-top my_img" src="{{painting.image.url}}"></img></a>
-                        <div class="paint-card-data">
-                        <h4>{{painting.title}}</h4>
-                        <p>${{painting.price}}</p>
-                        <p>{{painting.description}}</p>
-                        <a class="btn btn-info" href="{% url 'cart:cart_add' painting.id %}">Add to Cart</a>
-                        <br>        
-                    </div>
+            <div class="gallery_column_margins col col-9 col-sm-12 col-md-4 col-md-12 col-lg-4">
+                <div class="card mb-4 text-center" style="min-width: 15rem; min-height: 15rem; ">
+                    <a href="{{painting.image.url}}">
+                        <img class="card-img-top my_img" src="{{painting.image.url}}" 
+                            style="height: 250px; width: 250px;">
+                        </img>
+                    </a>
+                        <div class="row">
+                            <div class="col-sm">
+                                <h4>{{painting.title}}</h4>
+                                <p>${{painting.price}}</p>
+                                <p>{{painting.description}}</p>
+                                <a class="btn btn-info" href="{% url 'cart:cart_add' painting.id %}">Add to Cart</a>
+                                <br>  
+                            </div>      
+                        </div>
                 </div>
             </div>
+
             {% endfor %}    
 {% endblock %}

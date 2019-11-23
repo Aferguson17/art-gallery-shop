@@ -56,7 +56,7 @@ def signinTemp(request):
         return redirect('user_signup')
   else:
     form = AuthenticationForm()
-  return render(request,'user_accounts/user_signin.html', {'form':form})
+  return render(request, 'user_accounts/user_signin.html', {'form':form})
 
 def signoutTemp(request):
     logout(request)

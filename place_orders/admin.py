@@ -3,7 +3,11 @@ from .models import placeOrder, yourItem
 
 class yourItemAdmin(admin.TabularInline):
     model = yourItem
-    fieldsets = [('Painting',{'fields':['painting'],}),('Price',{'fields':['price'],}),('Quantity',{'fields':['quantity'],}),]
+    fieldsets = [
+        ('Painting',{'fields':['painting'],}),
+        ('Price',{'fields':['price'],}),
+        ('Quantity',{'fields':['quantity'],}),
+    ]
     readonly_fields = ['painting','price','quantity']
     can_delete= False
 

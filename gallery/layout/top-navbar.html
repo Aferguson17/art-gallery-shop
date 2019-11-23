@@ -19,10 +19,7 @@
             <br>
             {% if request.user.is_authenticated and request.user.first_name %}
             <li>
-                Hello {{ request.user.first_name }} <i class="fas fa-user-circle"></i>
-            </li>
-            <li>
-                <a href="{% url 'logout' %}">Sign Out</a>
+                Hello {{ request.user.first_name }} | <a href="{% url 'logout' %}">Sign Out</a>
             </li>
             {% else %}
             <li>
